@@ -1,0 +1,13 @@
+main {
+  height: calc(100vh - 64px);
+  width: 100%;
+  margin-top: 64px;
+  position: fixed;
+  overflow-y: scroll;
+}
+
+.App-Main {
+  min-height: calc(100vh - 64px - 56px);
+  width: 100%;
+  background-color: gray;
+}
