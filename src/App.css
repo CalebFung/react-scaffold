@@ -1,13 +1,18 @@
 main {
-  height: calc(100vh - 64px);
+  height: calc(100vh - 48px);
   width: 100%;
-  margin-top: 64px;
+  margin-top: 48px;
   position: fixed;
   overflow-y: scroll;
+  background-color: ghostwhite;
 }
 
 .App-Main {
-  min-height: calc(100vh - 64px - 56px);
-  width: 100%;
+  min-height: calc(100vh - 48px - 56px - 20px);
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   background-color: gray;
 }
