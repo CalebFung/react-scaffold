@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
+import MediaQuery from 'react-responsive';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import './App.css';
-import MaterialAppBar from './MaterialAppBar'
-import MaterialFooter from './MaterialFooter'
+import MaterialAppBar from './MaterialAppBar';
+import MaterialFooter from './MaterialFooter';
+import MinimalAppBar from './MinimalAppBar';
+import MinimalFooter from './MinimalFooter';
+import { View, TitleBar } from 'react-desktop/macOs';
 
 
 const muiTheme = getMuiTheme({
@@ -16,20 +20,49 @@ const muiTheme = getMuiTheme({
   },
 });
 
+const platform = window.navigator.platform;
+// const platform = 'somethingelse';
+
+function PlatformMain() {
+  if (platform.startsWith('Mac') || platform.startsWith('i')) {
+    return (
+      <div className="Minimal">
+        <MinimalAppBar />
+        <div className="App-Main">
+        </div>
+        <MinimalFooter />
+      </div>
+    )
+  } else {
+    return (
+      <div className="Material">
+        <MuiThemeProvider muiTheme={muiTheme}>
+          <div>
+            <MaterialAppBar/>
+            <main>
+              <div className="App-Main">
+            
+              </div>
+              <MaterialFooter />
+            </main>
+          </div>
+        </MuiThemeProvider>
+      </div>
+    )
+  }
+}
+
 class App extends Component {
   render() {
     return (
-      <MuiThemeProvider muiTheme={muiTheme}>
       <div className="App">
-        <MaterialAppBar/>
-        <main>
-          <div className="App-Main">
-            
-          </div>
-          <MaterialFooter />
-        </main>
+        <MediaQuery query="(min-width: 420px)">
+          <PlatformMain/>
+        </MediaQuery>
+        <MediaQuery query="(max-width: 419px)">
+          <PlatformMain />
+        </MediaQuery>
       </div>
-      </MuiThemeProvider>
     );
   }
 }
