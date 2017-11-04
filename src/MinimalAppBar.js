@@ -31,7 +31,6 @@ const styles = {
     height: 56,
     width: 56,
     left: 0,
-    position: 'absolute',
     fill: '#017AFF'
   },
   rightNav: {

@@ -37,7 +37,7 @@ class MaterialAppBar extends Component {
           <FileCloudDownload />
         </IconButton>
       }
-    />
+      />
     )
   }
 };

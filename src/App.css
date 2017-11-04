@@ -1,18 +1,41 @@
-main {
+.DM-main {
+  min-height: calc(100vh - 48px);
   height: calc(100vh - 48px);
   width: 100%;
   margin-top: 48px;
+  background-color: #f2f6f9;
   position: fixed;
   overflow-y: scroll;
-  background-color: ghostwhite;
 }
 
-.App-Main {
+.DM-content {
   min-height: calc(100vh - 48px - 56px - 20px);
-  width: 70%;
-  margin-left: 15%;
-  margin-right: 15%;
+  height: 600px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: gray;
+  background-color: black;
+}
+
+.DMaterial-main {
+  min-height: calc(100vh - 48px);
+  height: calc(100vh - 48px);
+  width: 100%;
+  margin-top: 48px;
+  background-color: #f2f6f9;
+  position: fixed;
+  overflow-y: scroll;
+}
+
+.DMaterial-content {
+  min-height: calc(100vh - 48px - 56px - 20px);
+  height: 600px;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background-color: black;
 }
