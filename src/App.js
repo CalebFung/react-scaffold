@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MediaQuery from 'react-responsive';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import Sidebar from 'react-sidebar';
 import './App.css';
 import MaterialAppBar from './MaterialAppBar';
 import MaterialFooter from './MaterialFooter';
@@ -21,12 +22,13 @@ const muiTheme = getMuiTheme({
   },
 });
 
+const mql = window.matchMedia(`(min-width: 800px)`);
+
 // const platform = window.navigator.platform;
-const platform = 'somethingelse';
+const platform = 'material';
 
 function PlatformMain() {
   if (platform.startsWith('Mac') || platform.startsWith('i')) {
-    console.log('minimal');
     return (
       <div className="Minimal">
         <MediaQuery query="(min-width: 420px)">
@@ -48,12 +50,11 @@ function PlatformMain() {
       </div>
     )
   } else {
-    console.log('material');
     return (
       <div className="Material">
         <MuiThemeProvider muiTheme={muiTheme}>
           <div>
-          <MediaQuery query="(min-width: 700px)">
+          <MediaQuery query="(min-width: 850px)">
             <MaterialAppBar />
             <main className="DMaterial-main">
               <div className="DMaterial-content">
@@ -62,7 +63,7 @@ function PlatformMain() {
               <MaterialFooter />
             </main>
           </MediaQuery>
-          <MediaQuery query="(max-width: 699px)"> 
+          <MediaQuery query="(max-width: 849px)"> 
             <MaterialAppBar />
             <main className="Material-main">
               <div className="Material-content">
@@ -79,11 +80,53 @@ function PlatformMain() {
 }
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      mql: mql,
+      docked: props.docked,
+      open: props.open
+    }
+
+    this.mediaQueryChanged = this.mediaQueryChanged.bind(this);
+    this.onSetSidebarOpen = this.onSetSidebarOpen.bind(this);
+  }
+
+  onSetSidebarOpen(open) {
+    this.setState({sidebarOpen: open});
+  }
+
+  componentWillMount() {
+    mql.addListener(this.mediaQueryChanged);
+    this.setState({mql: mql, sidebarDocked: mql.matches});
+  }
+
+  componentWillUnmount() {
+    this.state.mql.removeListener(this.mediaQueryChanged);
+  }
+
+  mediaQueryChanged() {
+    this.setState({sidebarDocked: this.state.mql.matches});
+  }
+
   render() {
+    var sidebarContent = <b>Hello Ah Jo</b>;
+    var sidebarProps = {
+      sidebar: this.state.sidebarOpen,
+      docked: this.state.sidebarDocked,
+      onSetOpen: this.onSetSidebarOpen
+    };
     return (
-      <div className="App">
-        <PlatformMain />
-      </div>
+      // <div className="App">
+      //   <PlatformMain />
+      // </div>
+      <Sidebar sidebar={sidebarContent}
+      open={this.state.sidebarOpen}
+      docked={this.state.sidebarDocked}
+      onSetOpen={this.onSetSidebarOpen}>
+        <b>Main content</b>
+      </Sidebar>
     );
   }
 }

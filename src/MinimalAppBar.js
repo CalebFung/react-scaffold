@@ -17,13 +17,13 @@ const styles = {
   leftNav: {
     fontSize: 18,
     position: 'absolute',
-    top: -2,
+    top: -4,
     left: -10
   },
   leftText: {
     position: 'absolute',
     color: '#017AFF',
-    top: 3,
+    top: 3.5,
     left: 45
   },
   leftIcon: {
@@ -35,7 +35,7 @@ const styles = {
   },
   rightNav: {
     position: 'absolute',
-    top: -2,
+    top: -4,
     right: 5
   },
   rightIcon: {
