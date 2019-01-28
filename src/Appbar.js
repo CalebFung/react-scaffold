@@ -29,7 +29,10 @@ const styles = theme => ({
     marginRight: 5,
   },
   loadingBar: {
+    position: 'absolute',
+    top: 0,
     height: 2,
+    width: '100vw',
     zIndex: theme.zIndex.appBar + 102,
   },
   loadingBarBackground: {
@@ -51,12 +54,12 @@ class Appbar extends Component {
           }} />
         <AppBar position="fixed" classes={{root: classes.appbar}}> 
         <Toolbar variant="dense" disableGutters classes={{root: classes.toolbar}}>
-          <Hidden mdUp implementation="js">
+          <Hidden mdUp implementation="css">
             <IconButton color="inherit" aria-label="Menu" classes={{root: classes.menuButton}} onClick={() => this.props.toggleMobileDrawer()}>
               <Icon>menu</Icon>
             </IconButton>
           </Hidden>
-          <Hidden smDown implementation="js">
+          <Hidden smDown implementation="css">
             <IconButton color="inherit" aria-label="Menu" classes={{root: classes.menuButton}} onClick={() => this.props.toggleDrawer()}>
               <Icon>menu</Icon>
             </IconButton>

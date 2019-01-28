@@ -9,10 +9,12 @@ import Hidden from '@material-ui/core/Hidden';
 
 const drawerWidth = 260;
 
-const styles = {
+const styles = theme => ({
   drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
+    [theme.breakpoints.up('md')]: {
+      width: drawerWidth,
+      flexShrink: 0,
+    },
   },
   drawerPaper: {
     width: drawerWidth,
@@ -21,22 +23,9 @@ const styles = {
   drawerToolbar: {
     marginBottom: 7,
   },
-};
+});
 
 class AppDrawer extends Component {
-  componentDidMount() {
-    window.addEventListener("resize", () => {
-      if (window.innerWidth < 600) { // mobile
-        if (this.props.open) this.props.toggleDrawer();
-      } else {
-        if (this.props.mobileOpen) this.props.toggleDrawer();
-      }
-    });
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateDimensions);
-  }
 
   render() {
     const { classes, open=true, mobileOpen=false } = this.props;
@@ -45,9 +34,9 @@ class AppDrawer extends Component {
       <nav>
         <Hidden mdUp implementation="js">
           <SwipeableDrawer
-            onClose={() => this.props.toggleMobileDrawer()}
-            onOpen={() => this.props.toggleMobileDrawer()}
             open={mobileOpen}
+            onClose={() => this.props.closeMobileDrawer()}
+            onOpen={() => this.props.openMobileDrawer()}
             classes={{
               paper: classes.drawerPaper,
             }}
@@ -71,7 +60,7 @@ class AppDrawer extends Component {
             <Divider />
             {this.props.children}
           </Drawer>
-        </Hidden> 
+        </Hidden>        
       </nav>
     );
   }
