@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
-import Radium, {StyleRoot, Style} from 'radium';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import Shell from './Shell';
 
-@Radium
+const theme = createMuiTheme({
+  palette: {
+    primary: { 
+      main: '#232323',
+    },
+    secondary: { 
+      main: '#0a9998',
+    }, 
+  },
+  typography: {
+    useNextVariants: true,
+  },
+  overrides: {
+
+  },
+});
+
 class App extends Component {
   render() {
     return (
-      <StyleRoot>
-        help
-      </StyleRoot>
+      <MuiThemeProvider theme={theme}>
+        <Shell />
+      </MuiThemeProvider>
     );
   }
 }
 
 export default App;
-
-// https://medium.com/@jihdeh/es7-decorators-in-reactjs-22f701a678cd
-// https://react.rocks/example/radium
