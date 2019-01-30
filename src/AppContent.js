@@ -10,19 +10,9 @@ const drawerWidth = 240;
 const styles = theme => ({
   content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
-  },
-  _appBarShift: {
-    width: `calc(100% - ${drawerWidth}px)`,
-    marginLeft: drawerWidth,
-    transition: theme.transitions.create(['margin', 'width'], {
-      easing: theme.transitions.easing.easeOut,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
   },
   _content: {
     flexGrow: 1,
-    padding: theme.spacing.unit * 3,
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.sharp,
       duration: theme.transitions.duration.leavingScreen,
@@ -44,7 +34,7 @@ class AppContent extends Component {
     const { classes, open } = this.props;
 
     return (
-        <main>
+      <main style={{width: '100%'}}>
         <Hidden mdUp implementation="css">
           <div className={classes.content}>
           <Toolbar className={classes._toolbar} variant="dense" disableGutters></Toolbar>

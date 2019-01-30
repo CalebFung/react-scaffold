@@ -6,7 +6,7 @@ import Shell from './Shell';
 const theme = createMuiTheme({
   palette: {
     primary: { 
-      main: '#232323',
+      main: '#262626',
     },
     secondary: { 
       main: '#0a9998',

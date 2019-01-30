@@ -72,8 +72,8 @@ class Shell extends Component {
     return (
       <div className={classes.root}>
         <CssBaseline />
-        <Appbar title="Title" logoSrc={process.env.PUBLIC_URL + '/logo.png' } handleDrawerToggle={this.handleDrawerToggle} 
-          value={25} hidden={false} />
+        <Appbar title="Title" logoSrc={process.env.PUBLIC_URL + '/logo.png'} handleDrawerToggle={this.handleDrawerToggle} 
+          value={25} hidden={true} />
         <AppDrawer open={open} mobileOpen={mobileOpen} 
           handleDrawerToggle={this.handleDrawerToggle} 
           route={route}
