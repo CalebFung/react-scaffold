@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-
 class Home extends Component {
   render() {
 
@@ -11,7 +10,7 @@ class Home extends Component {
           <h1 style={{fontSize: 64}}>Title</h1>
         </div>
         <div style={{width: '100%', position: 'absolute', top: 800, backgroundColor: '#fff'}}>
-          <h2 style={{fontSize: 32, color: '#00695c'}}>'Sup, 🅱?</h2>
+          {/* <h2 style={{fontSize: 32, color: '#00695c'}}>'Sup, 🅱?</h2> */}
           asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>
 
           <div style={{height: 400, background: '#efefef'}}>
