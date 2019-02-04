@@ -27,7 +27,10 @@ function init(bundle, parent, options = {}) {
   
   r360.renderToSurface(r360.createRoot('HVPanel'), hvPanel);
 
-  r360.compositor.setBackground('./static_assets/360_world.jpg');
+  const vplayer = r360.compositor.createVideoPlayer('vplayer');
+  vplayer.setSource('./static_assets/video.mp4', '3DLR');
+
+  // r360.compositor.setBackground('./static_assets/360_world.jpg');
 }
 
 window.React360 = {init};

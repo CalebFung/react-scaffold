@@ -13,10 +13,10 @@ class Home extends Component {
           {/* <h2 style={{fontSize: 32, color: '#00695c'}}>'Sup, 🅱?</h2> */}
           asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>
 
-          <div style={{height: 400, background: '#efefef'}}>
+          {/* <div style={{height: 400, background: '#efefef'}}>
             
-          </div>
-
+          </div> */}
+          <iframe src={process.env.PUBLIC_URL +  '/react360/index.html'} height="600" width="100%" frameBorder="0" title="360-demo" />   
         </div>
       </div>
     );
