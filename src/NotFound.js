@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 
 
 class NotFound extends Component {
+  componentDidMount() {
+    console.log('not found');
+  }
+
   render() {
     return (
       <div>

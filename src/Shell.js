@@ -65,6 +65,10 @@ class Shell extends Component {
     } 
   };
 
+  stopLoad = () => {
+
+  };
+
   render() {
     const { classes } = this.props;
     const { route, open, mobileOpen } = this.state;
@@ -85,7 +89,7 @@ class Shell extends Component {
           <Switch>
             <Route exact path='/' render={(props) => <Home {...props} callback={() => this.stopLoad()} />} />
             <Route exact path='/contact' render={(props) => <Contact {...props} callback={() => this.stopLoad()} />} />
-            <Route path='*' exact={true} component={NotFound} />
+            <Route exact path='*' component={NotFound} />
           </Switch>
         </AppContent>
       </div>
