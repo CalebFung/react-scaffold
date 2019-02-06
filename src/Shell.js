@@ -87,7 +87,7 @@ class Shell extends Component {
           ]} />
         <AppContent open={open}>
           <Switch>
-            <Route exact path='/' render={(props) => <Home {...props} callback={() => this.stopLoad()} />} />
+            <Route exact path='/' render={(props) => <Home {...props} open={open} callback={() => this.stopLoad()} />} />
             <Route exact path='/contact' render={(props) => <Contact {...props} callback={() => this.stopLoad()} />} />
             <Route exact path='*' component={NotFound} />
           </Switch>
