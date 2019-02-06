@@ -1,7 +1,7 @@
 import {Math as VRMath, ReactInstance, Surface} from 'react-360-web';
 
 function init(bundle, parent, options = {}) {
-  const hvPanel = new Surface(300, 300, Surface.SurfaceShape.Flat);
+  const hvPanel = new Surface(600, 600, Surface.SurfaceShape.Flat);
 
   const cameraDirection = [0, 0, -1];
 
@@ -29,8 +29,6 @@ function init(bundle, parent, options = {}) {
 
   const vplayer = r360.compositor.createVideoPlayer('vplayer');
   vplayer.setSource('./static_assets/video.mp4', '3DLR');
-
-  // r360.compositor.setBackground('./static_assets/360_world.jpg');
 }
 
 window.React360 = {init};

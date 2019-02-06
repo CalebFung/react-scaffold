@@ -35,13 +35,13 @@ class AppContent extends Component {
 
     return (
       <main style={{width: '100%'}}>
-        <Hidden mdUp implementation="css">
+        <Hidden mdUp implementation="js">
           <div className={classes.content}>
           <Toolbar className={classes._toolbar} variant="dense" disableGutters></Toolbar>
             {this.props.children}
           </div>
         </Hidden>
-        <Hidden smDown implementation="css">
+        <Hidden smDown implementation="js">
           <div className={classNames(classes._content, {
             [classes._contentShift]: open,
           })}>

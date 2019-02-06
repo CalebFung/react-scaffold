@@ -3,6 +3,7 @@ import {
   StyleSheet, 
   VrButton, 
   View, 
+  Text,
   Image, 
   asset,
   Environment,
@@ -15,8 +16,8 @@ class HVPanel extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      hide: false,
       playing: false,
-      hidden: false,
     };
   }
 
@@ -24,12 +25,8 @@ class HVPanel extends React.Component {
     Environment.setBackgroundVideo('vplayer');
   }
 
-  showButton = () => {
-    this.setState({ hidden: false });
-  };
-
-  hideButton = () => {
-    this.setState({ hidden: true });
+  handleButtonClick = (e) => {
+    this.setState({ hide: !this.state.hide });
   };
 
   togglePlayState = () => {
@@ -42,51 +39,39 @@ class HVPanel extends React.Component {
   };
 
   render() {
-    var button;
-
-    if (this.state.hidden) {
-      button = <VrButton></VrButton>;
-    } else {
-      button = <VrButton
-        style={styles.button}
-        onClick={this.togglePlayState}>
-        <Image
-          style={styles.icon}
-          source={this.state.playing ? asset('pause.png') : asset('play.png')} />
-      </VrButton>;
-    }
-
     return(
-      <View style={styles.panel}
-        onEnter={this.showButton}
-        onExit={this.hideButton}>
-        {/* <Text style={styles.panelText}>{'Follows Horizontally and Vertically'}</Text> */}
-        {button}
-      </View>
+      <VrButton style={styles.button}
+        onClick={this.handleButtonClick}
+        onLongClick={this.togglePlayState}>
+        {
+          !this.state.hide && 
+          <View style={styles.menu}>
+            <Text style={styles.menuText}>{'Long tap to play/pause\nShort tap to toggle this menu'}</Text>
+          </View>
+        }
+      </VrButton>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  panel: {
-    width: 300,
-    height: 300,
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
   button: {
-    height: 84,
-    width: 84,
+    height: 600,
+    width: 600,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.6)',
-    borderRadius: 25,
   }, 
-  icon: {
-    tintColor: '#ffffff',
-    height: 64,
-    width: 64,
-    aspectRatio: 1,
+  menu: {
+    width: 600,
+    height: 600,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(57, 57, 57, 0.6)',
+    borderRadius: 12,
+  },
+  menuText: {
+    textAlign: 'center',
+    fontSize: 32,
   },
 });
 
