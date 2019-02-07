@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
+import logo from './logo.png';
 
 const drawerWidth = 240;
 
@@ -15,28 +16,74 @@ const styles = theme => ({
   hero: {
     position: 'fixed', 
     backgroundColor: '#a8c4c4', 
-    height: 800, 
-    paddingTop: 250, 
     width: '100%', 
-    textAlign: 'center'
+    textAlign: 'center',
+    [theme.breakpoints.down('lg')]: {
+      height: 800, 
+      paddingTop: 250, 
+    },
+    [theme.breakpoints.down('md')]: {
+      height: 650, 
+      paddingTop: 150, 
+    },
+    [theme.breakpoints.down('sm')]: {
+      height: 450, 
+      paddingTop: 100, 
+    },
   },
   heroImage: {
-    width: 200, 
-    height: 200, 
-    borderRadius: 25,
+    [theme.breakpoints.down('lg')]: {
+      width: 200, 
+      height: 200, 
+      borderRadius: 25,
+    },
+    [theme.breakpoints.down('md')]: {
+      width: 150, 
+      height: 150, 
+      borderRadius: 15,
+    },
+    [theme.breakpoints.down('sm')]: {
+      width: 100, 
+      height: 100, 
+      borderRadius: 9,
+    },
   },
   heroText: {
-    fontSize: 64,
+    [theme.breakpoints.down('lg')]: {
+      fontSize: 64,
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: 56,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 42,
+    },
   },
   content: {
     width: '100%', 
-    position: 'absolute', 
-    top: 800, 
-    backgroundColor: '#fff',
+    position: 'absolute',
+    backgroundColor: '#ffffff',
+    [theme.breakpoints.down('lg')]: {
+      top: 800,
+    },
+    [theme.breakpoints.down('md')]: {
+      top: 650,
+    },
+    [theme.breakpoints.down('sm')]: {
+      top: 450,
+    },
   },
   header: {
-    fontSize: 32, 
     color: '#00695c',
+    [theme.breakpoints.down('lg')]: {
+      fontSize: 32, 
+    },
+    [theme.breakpoints.down('md')]: {
+      fontSize: 28,
+    },
+    [theme.breakpoints.down('sm')]: {
+      fontSize: 26,
+    },
   },
   frameContainer: {
     height: 600, 
@@ -50,9 +97,10 @@ const styles = theme => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     width: '100vw',
-    backgroundColor: '#565656', 
+    height: 28,
+    backgroundColor: '#0a9998', 
     color: '#ffffff', 
-    fontSize: 18,
+    fontSize: 16,
     display: 'flex', 
     justifyContent: 'center', 
     alignItems: 'center', 
@@ -60,7 +108,9 @@ const styles = theme => ({
     cursor: 'pointer', 
     userSelect: 'none',
     position: 'absolute',
-    marginLeft: -drawerWidth/2,
+    [theme.breakpoints.up('md')]: {
+      marginLeft: -drawerWidth/2,
+    },
   },
   _scrollBannerShift: {
     transition: theme.transitions.create('margin', {
@@ -77,7 +127,7 @@ const styles = theme => ({
     height: 600, 
     width: '100%', 
     backgroundColor: 
-    'rgba(71, 71, 71, 0.4)', 
+    'rgba(168, 196, 196, 0.4)', 
     top: 0, 
     left: 0,
     position: 'absolute',
@@ -139,7 +189,7 @@ class Home extends Component {
     return (
       <div className={classes.container}>
         <div className={classes.hero}>
-          <img className={classes.heroImage} src={process.env.PUBLIC_URL + '/logo.png'} alt="banner" />
+          <img className={classes.heroImage} src={logo} alt="banner" />
           <h1 className={classes.heroText}>Title</h1>
         </div>
         <div className={classes.content}>
@@ -156,7 +206,7 @@ class Home extends Component {
               Tap to toggle 360 video interaction
             </div>
             {this.state.overlay && <div className={classes._scrollOverlay}></div>}
-            <iframe src={process.env.PUBLIC_URL +  '/react360/index.html'} height="600" width="100%" frameBorder="0" title="360-demo" 
+            <iframe src={process.env.PUBLIC_URL + '/react360/index.bundle.js'} height="600" width="100%" frameBorder="0" title="360-demo" 
               onLoad={this.handleIframeLoad} />
           </div>
           asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>

@@ -7,6 +7,7 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import LinearProgress from '@material-ui/core/LinearProgress';
+import logo from './logo.png';
 
 const styles = theme => ({
   appBar: {
@@ -39,11 +40,7 @@ const styles = theme => ({
 class Appbar extends Component {
   
   render() {
-    const { classes, logoSrc=undefined, value=0, hidden=true } = this.props;
-
-    const logo = (logoSrc !== undefined) 
-                ? <img className={classes.logo} src={logoSrc} alt="logo" /> 
-                : <span></span>;
+    const { classes, value=0, hidden=true } = this.props;
 
     return(
       <AppBar position="fixed" className={classes.appBar}>
@@ -57,7 +54,7 @@ class Appbar extends Component {
           >
             <Icon>menu</Icon>
           </IconButton>
-          {logo}
+          <img className={classes.logo} src={logo} alt="logo" /> 
           <Typography variant="h6" color="inherit" noWrap>
             {this.props.title || 'Untitled'}
           </Typography>
