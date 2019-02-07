@@ -206,7 +206,7 @@ class Home extends Component {
               Tap to toggle 360 video interaction
             </div>
             {this.state.overlay && <div className={classes._scrollOverlay}></div>}
-            <iframe src={process.env.PUBLIC_URL + '/react360/index.bundle.js'} height="600" width="100%" frameBorder="0" title="360-demo" 
+            <iframe src={process.env.PUBLIC_URL +  '/react360/index.html'} height="600" width="100%" frameBorder="0" title="360-demo" 
               onLoad={this.handleIframeLoad} />
           </div>
           asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>asdf<br/>
