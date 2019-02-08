@@ -74,7 +74,7 @@ class AppDrawer extends Component {
     return (
       <nav className={classes.drawer}>
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
-        <Hidden mdUp implementation="js">
+        <Hidden mdUp implementation="css">
           <Drawer
             transitionDuration={{enter: 100, exit: 70}}
             container={this.props.container}
@@ -91,7 +91,7 @@ class AppDrawer extends Component {
             {drawer}
           </Drawer>
         </Hidden>
-        <Hidden smDown implementation="js">
+        <Hidden smDown implementation="css">
           <Drawer
             className={classes._drawer}
             variant="persistent"

@@ -4,6 +4,7 @@ import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import Hidden from '@material-ui/core/Hidden';
+import AppFooter from './AppFooter';
 
 const drawerWidth = 240;
 
@@ -35,18 +36,20 @@ class AppContent extends Component {
 
     return (
       <main style={{width: '100%'}}>
-        <Hidden mdUp implementation="js">
+        <Hidden mdUp implementation="css">
           <div className={classes.content}>
           <Toolbar className={classes._toolbar} variant="dense" disableGutters></Toolbar>
             {this.props.children}
+            <AppFooter />
           </div>
         </Hidden>
-        <Hidden smDown implementation="js">
+        <Hidden smDown implementation="css">
           <div className={classNames(classes._content, {
             [classes._contentShift]: open,
           })}>
             <Toolbar className={classes._toolbar} variant="dense" disableGutters></Toolbar>
             {this.props.children}
+            <AppFooter />
           </div>
         </Hidden>
       </main>

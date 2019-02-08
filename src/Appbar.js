@@ -32,6 +32,13 @@ const styles = theme => ({
     padding: 0,
   },
   logo: {
+    backgroundColor: '#262626',
+    height: 34,
+    marginRight: 5,
+  },
+  logoPlaceholder: {
+    backgroundColor: '#262626',
+    width: 34,
     height: 34,
     marginRight: 5,
   },
